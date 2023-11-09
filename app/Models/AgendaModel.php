@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AgendaModel extends Model
 {
     use HasFactory;
+
     protected $fillable =[
 
         'profissional_id',

@@ -6,6 +6,7 @@ use App\Http\Requests\ProfissionalFormRequest;
 use App\Http\Requests\ProfissionalFormRequestUpdate;
 use App\Models\ProfissionalModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfissionalController extends Controller
 {

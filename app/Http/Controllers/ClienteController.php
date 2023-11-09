@@ -6,6 +6,7 @@ use App\Http\Requests\ClienteFormRequest;
 use App\Http\Requests\ClienteFormRequestUpdate;
 use App\Models\ClienteModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ClienteController extends Controller
 {
