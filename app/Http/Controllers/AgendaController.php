@@ -20,7 +20,7 @@ class AgendaController extends Controller
 
         return response()->json([
             "success" => true,
-            "message" => "serviço agendado com sucesso",
+            "message" => "serviço agendado com êxito",
             "data" => $agendas
         ], 200);
 }
@@ -43,7 +43,7 @@ public function excluir($id){
 
     return response()->json([
         'status' => false,
-        'message' => 'Agendamento excluido com sucesso'
+        'message' => 'Agendamento excluído com êxito'
     ]);
 }
 
@@ -53,7 +53,7 @@ public function update(AgendaFormRequest $request){
     if(!isset($agendas)){
         return response()->json([
             "status" => false,
-            "message" => "agendamento não encontrado"
+            "message" => "Agendamento não encontrado"
         ]);
     }
 
@@ -79,7 +79,7 @@ public function update(AgendaFormRequest $request){
     
         return response()->json([
             "status" => false,
-            "message" => "Cliente atualizado"
+            "message" => "Cliente atualizado com êxito"
         ]);
 }
 }

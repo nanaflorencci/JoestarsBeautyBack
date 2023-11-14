@@ -30,7 +30,7 @@ class ClienteController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => "Cliente cadastrado com sucesso",
+            'message' => "Cliente cadastrado com êxito",
             'data' => $Cliente
         ], 200);
 }
@@ -123,7 +123,7 @@ public function excluir($id){
 
     return response()->json([
         'status' => false,
-        'message' => 'Cliente excluido com sucesso'
+        'message' => 'Cliente excluído com êxito'
     ]);
 }
 
@@ -184,7 +184,7 @@ public function update(ClienteFormRequestUpdate $request){
 
     return response()->json([
         'status' => false,
-        'message' => "Cliente atualizado"
+        'message' => "Cliente atualizado com êxito"
     ]);
 }
 }

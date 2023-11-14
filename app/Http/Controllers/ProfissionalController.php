@@ -31,7 +31,7 @@ class ProfissionalController extends Controller
         ]);
         return response()->json([
             'success' => true,
-            'message' => "Profissional cadastrado com sucesso",
+            'message' => "Profissional cadastrado com êxito",
             'data' => $Profissional
         ], 200);
     }
@@ -129,7 +129,7 @@ class ProfissionalController extends Controller
 
         return response()->json([
             'status' => false,
-            'message' => 'Profissional excluido com sucesso'
+            'message' => 'Profissional excluído com êxito'
         ]);
     }
 
@@ -191,7 +191,7 @@ class ProfissionalController extends Controller
 
         return response()->json([
             'status' => false,
-            'message' => "Profissional atualizado"
+            'message' => "Profissional atualizado com êxito"
         ]);
     }
 }

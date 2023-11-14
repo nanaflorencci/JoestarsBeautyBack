@@ -20,7 +20,7 @@ class ServicoController extends Controller
         ]);
         return response()->json([
             'sucess' => true,
-            'message' => "Servico Cadastrado com sucesso",
+            'message' => "Servico Cadastrado com êxito",
             'data' => $servico
         ]);
     }
@@ -96,7 +96,7 @@ class ServicoController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => "serviço excluído com sucesso"
+            'message' => "serviço excluído com êxito"
         ]);
     }
 
@@ -127,7 +127,7 @@ class ServicoController extends Controller
     
         return response()->json([
             'status' => false,
-            'message' => "Serviço atualizado"
+            'message' => "Serviço atualizado êxito"
         ]);
     
     }
