@@ -1,4 +1,4 @@
-# JoestrasBeauty API com PHP e Laravel
+# JoestarsBeauty API com PHP e Laravel
 
 Este projeto contêm um site programado por estudantes da escola SESI a fim de aprofundar seus conhecimentos nas linguagens PHP e Json do curso de Ànalise de Sistemas do SENAI.
 
