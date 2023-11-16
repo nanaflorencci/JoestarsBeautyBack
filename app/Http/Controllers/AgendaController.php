@@ -62,7 +62,7 @@ class AgendaController extends Controller
         $agendas->update();
         return response()->json([
             'status' => true,
-            'message' => 'Agenda ataulizado'
+            'message' => 'Agenda atualizada'
         ]);
     }
 
