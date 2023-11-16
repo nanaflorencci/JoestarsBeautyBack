@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cliente_models', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nome',120)->nullable(false);
-            $table->string('celular',11)->unique()->nullable(false);
-            $table->string('email',120)->unique()->nullable(false);
-            $table->string('cpf',11)->unique()->nullable(false);
+            $table->string('celular',11)->nullable(false)->unique();;
+            $table->string('email',120)->nullable(false)->unique();;
+            $table->string('cpf',11)->nullable(false)->unique();;
             $table->date('dataNascimento')->nullable(false);
             $table->string('cidade',120)->nullable(false);
             $table->string('estado',2)->nullable(false);
@@ -24,9 +24,10 @@ return new class extends Migration
             $table->string('rua',120)->nullable(false);
             $table->string('numero',10)->nullable(false);
             $table->string('bairro',100)->nullable(false);
-            $table->string('cep',8)->nullable(false);
+            $table->string('cep', 8)->nullable(false);
             $table->string('complemento',150)->nullable(false);
             $table->string('password')->nullable(false);
+            
             $table->timestamps();
         });
     }
@@ -36,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cliente_models');
+        Schema::dropIfExists('clientes');
     }
 };

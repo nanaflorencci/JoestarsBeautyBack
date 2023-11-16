@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('servico_models', function (Blueprint $table) {
+        Schema::create('servicos', function (Blueprint $table) {
             $table->id();
+            $table->string('nome', 80)->unique()->nullable(false);
+            $table->integer('duracao')->nullable(false);
+            $table->string('descricao', 200)->nullable(false);
+            $table->decimal('preco')->nullable(false);
             $table->timestamps();
-            $table->string('nome',80)->unique()->nullable(false);
-            $table->string('descricao',200)->nullable(false);
-            $table->integer('duracao')->numeric()->nullable(false);
-            $table->decimal('preco')->decimal()->nullable(false);
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('servico_models');
+        Schema::dropIfExists('servicos');
     }
 };

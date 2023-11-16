@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agenda_models', function (Blueprint $table) {
+        Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('profissional_id')->nullable(false);
-            $table->bigInteger('cliente_id')->nullable(false);
-            $table->bigInteger('servico_id')->nullable(false);
+        
+            $table->bigInteger('profissional_id',)->nullable(false)->unique();
             $table->date('data_hora')->nullable(false);
-            $table->string('tipo_pagamento')->nullable(false);
-            $table->decimal('valor',20)->nullable(false);
+           
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agenda_models');
+        Schema::dropIfExists('agendas');
     }
 };
