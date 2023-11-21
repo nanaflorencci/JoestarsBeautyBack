@@ -8,8 +8,8 @@ use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
 
 //Clientes
-Route::delete('excluir/{id}', [ClienteController::class, 'deletar']);
 Route::post('cadastroCliente', [ClienteController::class,  'cadastroCliente']);
+Route::delete('excluir/{id}', [ClienteController::class, 'deletar']);
 Route::post('buscarNomecliente', [ClienteController::class, 'pesquisarPorCliente']);
 Route::post('CPF', [ClienteController::class, 'pesquisarPorCpf']);
 Route::post('telefone', [ClienteController::class, 'PesquisarPorCelular']);
