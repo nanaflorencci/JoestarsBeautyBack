@@ -24,15 +24,11 @@ class AgendaFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-          
-            'profissional_id'=>'required|unique:Agendas,profissional_id',
-             'data_hora'=>'required|date',
-        ];
-
+            'profissional_id'=>'required',
+            'dataHora'=>'required|date',
+        ]; 
     }
-
-
-        public function failedValidation(Validator $validator)
+    public function failedValidation(Validator $validator)
         {
             throw new HttpResponseException(response()->json([
                 'success' => false,
@@ -43,8 +39,8 @@ class AgendaFormRequest extends FormRequest
         {
             return [   
                 'profissional_id.required'=>'Esse campo é obrigatorio',
-                 'data_hora.required'=>'Esse campo é obrigatorio',
-                 'profissional_id.unique'=>'Esse id já foi cadastrado',
+                'dataHora.required'=>'Esse campo é obrigatorio',
+                'dataHora.date' => 'O campo data e hora deve ter apenas numeros',
              ];
         }
-    }
+}

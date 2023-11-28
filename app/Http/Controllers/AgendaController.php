@@ -8,32 +8,53 @@ use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
-    //Cadastro de cliente - Agenda
-    public function cadastroClienteAgenda(AgendaFormRequest $request)
-    {
-        $agendas = AgendaModel::create([
-
+    public function cadastroAgenda(AgendaFormRequest $request){
+        $agendamento =AgendaProfissionais::create([
+           
             'profissional_id' => $request->profissional_id,
-
-            'data_hora' => $request->data_hora,
-
+            'dataHora' => $request->dataHora
+            
         ]);
         return response()->json([
             "success" => true,
             "message" => "Agenda cadastrado com sucesso",
-            "data" => $agendas
+            "data" => $agendamento
         ], 200);
     }
 
-    //Vizualização de serviço
-    public function VisualisarServico(Request $request)
-    {
-        $agendas = AgendaModel::where('servico', 'like', '%' . $request->servico . '%')->get();
 
-        if (count($agendas) > 0) {
+    //visualizar todos
+    public function retornarTodos(){
+        $agendamento = AgendaProfissionais::all();
+        return response()->json([
+            'status'=> true,
+            'data'=> $agendamento
+        ]);
+    }
+
+
+    public function pesquisarPorId($id){
+        $agendamento = AgendaProfissionais::find($id);
+        if($agendamento == null){
+            return response()->json([
+                'status'=> false,
+                'message' => "agendamento não encontrado"
+            ]);     
+        }
+        return response()->json([
+            'status'=> true,
+            'data'=> $agendamento
+        ]);
+    }
+
+
+    //pesquisar por serviço
+    public function pesquisarPorServico(Request $request){
+        $agendamento = AgendaProfissionais::where('servico', 'like', '%' . $request->servico . '%')->get();
+        if (count($agendamento) > 0) {
             return response()->json([
                 'status' => true,
-                'data' => $agendas
+                'data' => $agendamento
             ]);
         }
         return response()->json([
@@ -42,61 +63,48 @@ class AgendaController extends Controller
         ]);
     }
 
-    //Editar agendamento
-    public function updateAgenda(AgendaFormRequest $request)
-    {
-        $agendas = AgendaModel::find($request->id);
 
-        if (!isset($agendas)) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Agenda não encontrado'
-            ]);
-        }
-        if (isset($request->profissional_id)) {
-            $agendas->profissional_id = $request->profissional_id;
-        }
-        if (isset($request->data_hora)) {
-            $agendas->data_hora = $request->data_hora;
-        }
-        $agendas->update();
-        return response()->json([
-            'status' => true,
-            'message' => 'Agenda atualizada'
-        ]);
-    }
-
-    //Deletando agendamento
-    public function excluir($id)
-    {
-        $agendas = AgendaModel::find($id);
-        if (!isset($agendas)) {
+    //DELETANDO AGENDAMENTO 
+    public function excluir($id){
+        $agendamento= AgendaProfissionais::find($id);
+        if (!isset($agendamento)) {
             return response()->json([
                 'status' => false,
                 'message' => "Agendamento não encontrado"
             ]);
         }
-        $agendas->delete();
+
+        $agendamento->delete();
 
         return response()->json(([
             'status' => true,
             'message' =>  "Agendamento excluido com sucesso"
         ]));
     }
-    public function visualizarAgenda()
-    {
-        $agendas = AgendaModel::all();
 
-        if (!isset($agendas)) {
 
+    //EDITANDO O AGENDAMENTO
+    public function update(AgendaFormRequest $request){
+        $agendamento = AgendaProfissionais::find($request->id);
+    
+        if(!isset($agendamento)){
             return response()->json([
-                'status' => false,
-                'message' => 'não há registros registrados'
+                "status" => false,
+                "message" => "Agendamento não encontrado"
             ]);
         }
+    
+        if(isset($request->profissional_id)){
+            $agendamento->profissional_id = $request->profissional_id;
+        }
+        if(isset($request->dataHora)){
+            $agendamento->dataHora = $request->dataHora;
+        }
+        $agendamento->update();
+    
         return response()->json([
-            'status' => true,
-            'data' => $agendas
+            "status" => false,
+            "message" => "agendamento atualizado"
         ]);
     }
 }
