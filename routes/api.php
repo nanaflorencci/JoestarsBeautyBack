@@ -28,7 +28,6 @@ route::get('clientes/visualizar', [ClienteController::class, 'retornarTodos']);
 Route::get('clientes/pesquisar/{id}',[ClienteController::class, 'pesquisarPorId']);
 Route::post('clientes/senha/redefinir',[ClienteController::class, 'redefinirSenha']);
 
-
 //Profissionais
 route::post('Profissional', [ProfissionalController::class, 'Profissional']);
 route::post('Profissional/nome', [ProfissionalController::class, 'pesquisarPorNome']);

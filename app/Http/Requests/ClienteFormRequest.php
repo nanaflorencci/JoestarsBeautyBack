@@ -25,19 +25,19 @@ class ClienteFormRequest extends FormRequest
     {
         return [
 
-            'nome' => 'required|max:120|min:5',
-            'celular' => 'required|max:11|min:10',
-            'email' => 'required|unique:clientes,email|max:120',
+            'nome' => 'required|max:50|min:5',
+            'celular' => 'required|max:11|min:11',
+            'email' => 'required|unique:clientes,email|max:50',
             'cpf' => 'required|unique:clientes,cpf|max:11|min:11',
             'dataNascimento' => 'required|date',
-            'cidade' => 'required|max:120',
-            'estado' => 'required|max:2|min:2',
-            'pais' => 'required|max:80|min:5',
-            'rua' => 'required|max:120|min:5',
-            'numero' => 'required|max:10',
-            'bairro' => 'required|max:100|',
+            'cidade' => 'required|max:50|min:4',
+            'estado' => 'required|max:30|min:4',
+            'pais' => 'required|max:30|min:4',
+            'rua' => 'required|max:50|min:4',
+            'numero' => 'required|max:4|min:4',
+            'bairro' => 'required|max:30|min:4',
             'cep' => 'required|max:8|min:8',
-            'complemento' => 'required|max:150|',
+            'complemento' => 'required|max:30|min:4',
             'password' => 'required|'
 
         ];
@@ -55,20 +55,20 @@ class ClienteFormRequest extends FormRequest
     {
         return [
             //nome
-            'nome.required' => 'O campo nome é obrigatorio',
-            'nome.max' => 'O campo nome deve conter  no maximo 120 caracteres',
-            'nome.min' => 'O campo nome deve conter no minimo 5 caracteres',
+            'nome.required' => 'O campo do nome é obrigatório',
+            'nome.max' => 'O campo do nome deve conter, no máximo, 120 caracteres',
+            'nome.min' => 'O campo do nome deve conter, no mínimo, 5 caracteres',
 
             //celular
-            'celular.required' => 'O campo celular é obrigatorio',
-            'celular.min' => 'O campo celular deve conter no minimo 11caracteres',
-            'celular.max' => 'O campo celular deve conter no maximo 11 caracteres',
-            'celular.unique' => 'Celular já cadastrado, informe outro',
+            'celular.required' => 'O campo do celular é obrigatório',
+            'celular.min' => 'O campo do celular deve conter, no mínimo, 11 caracteres',
+            'celular.max' => 'O campo do celular deve conter, no máximo 11, caracteres',
+            'celular.unique' => 'Celular já cadastrado. Por obséquio, informe outro',
 
             //email
-            'email.required' => 'O email celular é obrigatorio',
-            'email.unique' => 'Email já cadastrado informe outro email',
-            'email.max' => 'O email celular de conter 120 caracteres',
+            'email.required' => 'O email é obrigatório',
+            'email.unique' => 'Email já cadastrado. Por obséquio, informe outro email',
+            'email.max' => 'O email deve conter 120 caracteres',
 
             //cpf
             'cpf.required' => 'O campo cpf é obrigatorio',
