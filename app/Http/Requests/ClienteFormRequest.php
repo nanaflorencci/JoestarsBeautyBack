@@ -26,7 +26,7 @@ class ClienteFormRequest extends FormRequest
         return [
 
             'nome' => 'required|max:50|min:5',
-            'celular' => 'required|max:11|min:11',
+            'celular' => 'required|max:11|min:11|unique:clientes,celular',
             'email' => 'required|unique:clientes,email|max:50',
             'cpf' => 'required|unique:clientes,cpf|max:11|min:11',
             'dataNascimento' => 'required|date',
@@ -61,20 +61,20 @@ class ClienteFormRequest extends FormRequest
 
             //celular
             'celular.required' => 'O campo do celular é obrigatório',
-            'celular.min' => 'O campo do celular deve conter, no mínimo, 11 caracteres',
             'celular.max' => 'O campo do celular deve conter, no máximo 11, caracteres',
-            'celular.unique' => 'Celular já cadastrado. Por obséquio, informe outro',
+            'celular.min' => 'O campo do celular deve conter, no mínimo, 11 caracteres',
+            'celular.unique' => 'Celular já cadastrado. Informe outro',
 
             //email
-            'email.required' => 'O email é obrigatório',
-            'email.unique' => 'Email já cadastrado. Por obséquio, informe outro email',
+            'email.required' => 'O campo email é obrigatório',
             'email.max' => 'O email deve conter 120 caracteres',
+            'email.unique' => 'Email já cadastrado. Informe outro email',
 
             //cpf
-            'cpf.required' => 'O campo cpf é obrigatorio',
-            'cpf.max' => 'O campo cpf deve ter no maximo 11 caracteres',
-            'cpf.min' => 'O campo cpf deve ter no mainimo 11 caracteres',
-            'cpf.unique' => 'Cpf já cadastrado, informe outro cpf',
+            'cpf.required' => 'O campo cpf é obrigatório',
+            'cpf.max' => 'O campo cpf deve ter, no máximo, 11 caracteres',
+            'cpf.min' => 'O campo cpf deve ter, no mínimo, 11 caracteres',
+            'cpf.unique' => 'Cpf já cadastrado. Informe outro cpf',
 
             //data de nascimento        
             'dataNascimento.required' => 'O campo data de nascimento é obrigatorio',
