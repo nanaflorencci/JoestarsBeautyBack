@@ -24,6 +24,10 @@ copy .env.example .env
 ```
 code .
 ```
+6. Para rodar o projeto:
+```
+php artisan migrate
+```
 
 # Insomnia
 
