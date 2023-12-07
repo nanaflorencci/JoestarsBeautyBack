@@ -7,43 +7,45 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
 
-//Serviços
-Route::post('servico',[ServicoController::class, 'Servico']);
-Route::post('servico/nome',[ServicoController::class, 'pesquisarPorNome']);
-Route::post('servico/descricao',[ServicoController::class, 'pesquisarPoDescricao']);
-Route::delete('servico/delete/{id}',[ServicoController::class, 'excluir']);
-Route::put('servico/update',[ServicoController::class, 'update']);
-route::get('servico/visualizar', [ServicoController::class, 'retornarTodos']);
-Route::get('servico/pesquisar/{id}',[ServicoController::class, 'pesquisarPorId']);
+//Cadastro de serviço
+Route::post('cadastroServico', [ServicoController::class,  'cadastroServico']);
+Route::delete('delete/{id}', [ServicoController::class, 'excluirServico']);
+Route::post('buscarNome', [ServicoController::class, 'PesquisarPorNomeServico']);
+Route::post('pesquisar', [ServicoController::class, 'pesquisarPorDescricaoServico']);
+Route::put('updateServico', [ServicoController::class,  'updateServico']);
+Route::get('visualizarServico', [ServicoController::class, 'visualizarServico']);
+Route::get('pesquisarPorIdServico/{id}', [ServicoController::class, 'pesquisarPorIdServico']);
 
-//Clientes
-route::post('clientes', [ClienteController::class, 'clientes']);
-route::post('clientes/nome', [ClienteController::class, 'pesquisarPorNome']);
-route::post('clientes/cpf', [ClienteController::class, 'pesquisarPorCpf']);
-route::post('clientes/celular', [ClienteController::class, 'pesquisarPorCelular']);
-route::post('clientes/email', [ClienteController::class, 'pesquisarPorEmail']);
-route::delete('clientes/delete/{id}', [ClienteController::class, 'excluir']);
-route::put('clientes/update', [ClienteController::class, 'update']);
-route::get('clientes/visualizar', [ClienteController::class, 'retornarTodos']);
-Route::get('clientes/pesquisar/{id}',[ClienteController::class, 'pesquisarPorId']);
-Route::post('clientes/senha/redefinir',[ClienteController::class, 'redefinirSenha']);
+//Cadastro de cliente
+Route::post('cadastroCliente', [ClienteController::class,  'cadastroCliente']);
+Route::delete('excluir/{id}', [ClienteController::class, 'deletarCliente']);
+Route::post('buscarNomecliente', [ClienteController::class, 'pesquisarPorNomeCliente']);
+Route::post('CPF', [ClienteController::class, 'pesquisarPorCpfCliente']);
+Route::post('telefone', [ClienteController::class, 'PesquisarPorCelularCliente']);
+Route::post('email', [ClienteController::class, 'PesquisarPorEmailCliente']);
+Route::post('cep', [ClienteController::class, 'pesquisarPorCepCliente']);
+Route::put('updateCliente', [ClienteController::class,  'updateCliente']);
+Route::get('visualizarCadastroCliente', [ClienteController::class, 'visualizarCliente']);
+Route::get('pesquisarPorIdCleinte/{id}', [ClienteController::class, 'pesquisarPorIdCliente']);
+Route::post('senha/clientes',[clientecontroller::class, 'redefinirSenhaCliente']);
 
-//Profissionais
-route::post('Profissional', [ProfissionalController::class, 'Profissional']);
-route::post('Profissional/nome', [ProfissionalController::class, 'pesquisarPorNome']);
-route::post('Profissional/cpf', [ProfissionalController::class, 'pesquisarPorCpf']);
-route::post('Profissional/celular', [ProfissionalController::class, 'pesquisarPorCelular']);
-route::post('Profissional/email', [ProfissionalController::class, 'pesquisarPorEmail']);
-route::delete('Profissional/delete/{id}', [ProfissionalController::class, 'excluir']);
-route::put('Profissional/update', [ProfissionalController::class, 'update']);
-route::get('Profissional/visualizar', [ProfissionalController::class, 'retornarTodos']);
-Route::get('Profissional/pesquisar/{id}',[ProfissionalController::class, 'pesquisarPorId']);
-Route::post('Profissional/senha/redefinir',[ProfissionalController::class, 'redefinirSenha']);
+//Cadastro de profissional
+Route::post('cadastroProfissional', [ProfissionalController::class, 'cadastroProfissional']);
+Route::post('senha/profissional',[Profissionalcontroller::class, 'redefinirSenhaProfissional']);
+Route::post('pesquisarPorProfissional', [ProfissionalController::class, 'pesquisarPorNomeProfissional']);
+Route::get('visualizarProfissional', [ProfissionalController::class, 'visualizarProfissional']);
+Route::post('pesquisarPorCpf', [ProfissionalController::class, 'pesquisarPorCpfProfissional']);
+Route::post('PesquisarPorCelular', [ProfissionalController::class, 'pesquisarPorCelularProfissional']);
+Route::post('PesquisarPorEmail', [ProfissionalController::class, 'pesquisarPorEmailProfissional']);
+Route::put('updateProfissional', [ProfissionalController::class,  'updateProfissional']);
+Route::delete('deletarProficional/{id}', [ProfissionalController::class, 'deletarProfissional']);
+Route::get('pesquisarPorIdProficional/{id}', [ProfissionalController::class, 'pesquisarPorIdProfissional']);
 
-//Agendamento
-route::post('agendamento', [AgendaProfissionaiscontroller::class, 'cadastroAgenda']);
-route::post('nome/agendamento', [AgendaProfissionaiscontroller::class, 'pesquisarPorServico']);
-route::delete('delete/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'excluir']);
-route::put('update/agendamento', [AgendaProfissionaiscontroller::class, 'update']);
-route::get('visualizar/agendamento', [AgendaProfissionaiscontroller::class, 'retornarTodos']);
-route::get('find/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'pesquisarPorId']);
+//Cadastro de agendamento
+Route::post('cadastroAgenda', [AgendaController::class, 'cadastroAgenda']);
+Route::delete('deleteAgenda/{id}', [AgendaController::class, 'excluirAgenda']);
+Route::get('visualizarAgenda', [AgendaController::class, 'visualizarAgenda']);
+Route::post('buscarPorData/', [AgendaController::class, 'buscarPorDataAgenda']);
+Route::post('buscarPorIdProfissional{profissional_id}', [AgendaController::class, 'buscarPorIdProfissional']);
+route::get('find/agendamento/{id}', [AgendaController::class, 'pesquisarPorIdAgenda']);
+route::put('update/agendamento', [AgendaController::class, 'updateAgenda']);
